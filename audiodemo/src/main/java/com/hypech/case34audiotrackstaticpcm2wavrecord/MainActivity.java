@@ -1,4 +1,4 @@
-package com.hypech.case34audiotrackstaticandrecord;
+package com.hypech.case34audiotrackstaticpcm2wavrecord;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -20,7 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.hypech.case34audiotrackstaticandrecord.R;
+import com.hypech.case34audiotrackstaticpcm2wavrecord.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -32,9 +32,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.hypech.case34audiotrackstaticandrecord.GlobalConfig.AUDIO_FORMAT;
-import static com.hypech.case34audiotrackstaticandrecord.GlobalConfig.CHANNEL_CONFIG;
-import static com.hypech.case34audiotrackstaticandrecord.GlobalConfig.SAMPLE_RATE_INHZ;
+import static com.hypech.case34audiotrackstaticpcm2wavrecord.GlobalConfig.AUDIO_FORMAT;
+import static com.hypech.case34audiotrackstaticpcm2wavrecord.GlobalConfig.CHANNEL_CONFIG;
+import static com.hypech.case34audiotrackstaticpcm2wavrecord.GlobalConfig.SAMPLE_RATE_INHZ;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -48,14 +48,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * 需要申请的运行时权限
      */
-    private String[] permissions = new String[]{
+    private final String[] permissions = new String[]{
             Manifest.permission.RECORD_AUDIO,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
     /**
      * 被用户拒绝的权限列表
      */
-    private List<String> mPermissionList = new ArrayList<>();
+    private final List<String> mPermissionList = new ArrayList<>();
     private boolean isRecording;
     private AudioRecord audioRecord;
     private Button mBtnConvert;
@@ -82,6 +82,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.btn_play:
+                Button btn = (Button) view;
+                String string = btn.getText().toString();
+                if (string.equals(getString(R.string.start_play))) {
+                    btn.setText(getString(R.string.stop_play));
+                    playInModeStatic();
+                } else {
+                    btn.setText(getString(R.string.start_play));
+                    stopPlay();
+                }
+                break;
             case R.id.btn_control:
                 Button button = (Button) view;
                 if (button.getText().toString().equals(getString(R.string.start_record))) {
@@ -91,7 +102,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     button.setText(getString(R.string.start_record));
                     stopRecord();
                 }
-
                 break;
             case R.id.btn_convert:
                 PcmToWavUtil pcmToWavUtil = new PcmToWavUtil(SAMPLE_RATE_INHZ, CHANNEL_CONFIG, AUDIO_FORMAT);
@@ -106,19 +116,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 pcmToWavUtil.pcmToWav(pcmFile.getAbsolutePath(), wavFile.getAbsolutePath());
 
                 break;
-            case R.id.btn_play:
-                Button btn = (Button) view;
-                String string = btn.getText().toString();
-                if (string.equals(getString(R.string.start_play))) {
-                    btn.setText(getString(R.string.stop_play));
-                    //playInModeStream();
-                    playInModeStatic();
-                } else {
-                    btn.setText(getString(R.string.start_play));
-                    stopPlay();
-                }
-                break;
-
             default:
                 break;
         }
@@ -220,6 +217,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * 停止播放
+     */
+    private void stopPlay() {
+        if (audioTrack != null) {
+            Log.d(TAG, "Stopping");
+            audioTrack.stop();
+            Log.d(TAG, "Releasing");
+            audioTrack.release();
+            Log.d(TAG, "Nulling");
+        }
+    }
 
     /**
      * 播放，使用stream模式
@@ -329,20 +338,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
         }.execute();
-
-    }
-
-
-    /**
-     * 停止播放
-     */
-    private void stopPlay() {
-        if (audioTrack != null) {
-            Log.d(TAG, "Stopping");
-            audioTrack.stop();
-            Log.d(TAG, "Releasing");
-            audioTrack.release();
-            Log.d(TAG, "Nulling");
-        }
     }
 }

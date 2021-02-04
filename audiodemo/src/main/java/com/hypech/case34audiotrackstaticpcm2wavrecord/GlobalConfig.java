@@ -1,4 +1,4 @@
-package com.hypech.case34audiotrackstaticandrecord;
+package com.hypech.case34audiotrackstaticpcm2wavrecord;
 
 import android.media.AudioFormat;
 

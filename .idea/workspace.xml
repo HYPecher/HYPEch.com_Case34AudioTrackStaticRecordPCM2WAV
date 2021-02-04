@@ -22,7 +22,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f37527f-8b1e-4beb-9036-769d741904ee" name="Default Changelist" comment="" />
+    <list default="true" id="2f37527f-8b1e-4beb-9036-769d741904ee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules/HYPEch.com_Case34AudioTrackStaticRecordPCM2WAV.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/audiodemo/HYPEch.com_Case34AudioTrackStaticRecordPCM2WAV.audiodemo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/HYPEch.com_Case33AudioTrackStaticRecordPCM2WAV.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/audiodemo/HYPEch.com_Case33AudioTrackStaticRecordPCM2WAV.audiodemo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audiodemo/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/audiodemo/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audiodemo/src/main/java/com/hypech/case34audiotrackstaticandrecord/GlobalConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/audiodemo/src/main/java/com/hypech/case34audiotrackstaticpcm2wavrecord/GlobalConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audiodemo/src/main/java/com/hypech/case34audiotrackstaticandrecord/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/audiodemo/src/main/java/com/hypech/case34audiotrackstaticpcm2wavrecord/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audiodemo/src/main/java/com/hypech/case34audiotrackstaticandrecord/PcmToWavUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/audiodemo/src/main/java/com/hypech/case34audiotrackstaticpcm2wavrecord/PcmToWavUtil.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +74,7 @@
       </method>
     </configuration>
     <configuration name="audiodemo" type="AndroidRunConfigurationType" factoryName="Android App">
-      <module name="HYPEch.com_Case33AudioTrackStaticRecordPCM2WAV.audiodemo" />
+      <module name="HYPEch.com_Case34AudioTrackStaticRecordPCM2WAV.audiodemo" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
